@@ -1,0 +1,27 @@
+<div class="select-card--page">
+  <div class="intro-wrapper">
+    <div class="intro-heading">Give one of your peers an appreciations for their good work.</div>
+    <div class="intro-sub">Choose one of these qualities to appreciate for and make their day.</div>
+  </div>
+
+  <div class="card-list">
+    {{#each this.cultureQualities as |quality|}}
+      <div class="card-list-item"
+        {{on "click" (fn this.onCardClick quality) }}>
+        <AppreciationsCard 
+            @letter={{quality.letter}}
+            @size="s">
+          <div class="card-content">
+            <div class="card-content--letter">
+              {{quality.letter}}
+            </div>
+
+            <div class="card-content--title">
+              {{quality.name}}
+            </div>
+          </div>
+        </AppreciationsCard>
+      </div>
+    {{/each}}
+  </div>
+</div>

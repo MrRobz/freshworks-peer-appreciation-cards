@@ -7,4 +7,5 @@ export default class Router extends EmberRouter {
 }
 
 Router.map(function() {
+  this.route('card', { path: 'card/:quality_id' },  function() {});
 });

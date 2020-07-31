@@ -1,0 +1,20 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+ margin: 0;
+ height: 100%;
+ width: 100%;
+ background-color: var(--gray-100);
+ font-family: 'Signika', sans-serif;
+}
+
+.c-notification__icon {
+  display: grid;
+  place-items: center;
+}
