@@ -54,10 +54,15 @@
           {{svg-jar "download"}}
           Download card
       </button>
-      <button class="btn"
+      <button class="btn tooltip"
+        disabled={{this.clipboardNotSupported}}
         {{on "click" this.copyToClipboard}}>
           {{svg-jar "clipboard"}}
           Copy card to clipboard
+
+          {{#if this.clipboardNotSupported}}
+            <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
+          {{/if}}
       </button>
     </div>
   </div>

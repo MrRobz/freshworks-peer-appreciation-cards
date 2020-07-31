@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import { inlineSvgFor } from 'ember-svg-jar/utils/make-svg';
 import html2canvas from 'html2canvas';
 import { inject as service } from '@ember/service';
+import { later } from '@ember/runloop';
 
 const CARD_DESC_CHAR_LIMIT = 360;
 
@@ -12,6 +13,11 @@ export default class CardController extends Controller {
 
   @tracked
   cardDesc = "I am giving you this because...";
+
+  get clipboardNotSupported() {
+    let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    return !window.ClipboardItem || isSafari;
+  }
 
   textAreaAutoSize = (event) => {
     let element = event.target;
@@ -117,10 +123,12 @@ export default class CardController extends Controller {
     link.href = canvas.toDataURL();
     link.click();
 
-    this.notifications.success("Your card has been successfully downloaded. Feel free to share the card in slack, workplace...", {
-      autoClear: true,
-      clearDuration: 10000
-    });
+    later(this, () => {
+      this.notifications.success("Your card has been successfully downloaded. Feel free to share the card in slack, workplace...", {
+        autoClear: true,
+        clearDuration: 10000
+      });
+    }, 1000);
   }
 
   @action
@@ -130,27 +138,15 @@ export default class CardController extends Controller {
     if (window.ClipboardItem) {
       canvas.toBlob(blob => {
         navigator.clipboard.write([new window.ClipboardItem({ 'image/png': blob })]);
+
+        this.notifications.clearAll();
+        this.notifications.info("Your card has been copied to clipboard. Feel free to paste now in slack, workplace...", {
+          autoClear: true,
+          clearDuration: 10000
+        });
       });
-    } else {
-      var img = document.createElement('img');
-      img.src = canvas.toDataURL()
-      
-      var div = document.createElement('div');
-      div.contentEditable = true;
-      div.appendChild(img);
-      document.body.appendChild(div);
-  
-      // do copy
-      this.selectText(div);
-      document.execCommand('Copy');
-      document.body.removeChild(div);
     }
 
-    this.notifications.clearAll();
-    this.notifications.info("Your card has been copied to clipboard. Feel free to paste now in slack, workplace...", {
-      autoClear: true,
-      clearDuration: 10000
-    });
 
   }
 
