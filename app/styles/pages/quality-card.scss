@@ -31,8 +31,8 @@
     height: 60vh;
     margin: 50px;
     max-width: 1000px;
-    min-height: 400px;
-    min-width: 800px;
+    // min-height: 400px;
+    // min-width: 800px;
   }
 
   .card-content {
@@ -152,6 +152,8 @@
     max-width: 1000px;
     width: 100%;
     margin: 10px auto;
+    margin-bottom: 90px;
+    min-height: 80px;
   }
 
   .share-text {
@@ -162,7 +164,6 @@
   .share-buttons {
     display: flex;
     margin-top: 16px;
-    margin-bottom: 90px;
     font-size: 1.3rem;
     color: #25282B;
 

@@ -7,63 +7,71 @@
   <div id="dummy-div" class="dummy-div">
   </div>
   <div class="card-wrapper">
-    <AppreciationsCard 
-        @letter={{@model.letter}}
-        @size="l">
-      <div class="card-content">
-        <div class="card-image-section">
-            <img src="{{@model.imageLoc}}" alt="card image">
-        </div>
-
-        <div class="card-details-section">
-            <div class="card-details-title">
-              {{@model.name}}
+    <AnimatedContainer>
+      {{#animated-value @model use=this.transition}}
+        <AppreciationsCard 
+            @letter={{@model.letter}}
+            @size="l">
+          <div class="card-content">
+            <div class="card-image-section">
+                <img src="{{@model.imageLoc}}" alt="card image">
             </div>
 
-            <div class="card-details-to">
-              <span>To</span>
-              <input type="text" autofocus>
-            </div>
+            <div class="card-details-section">
+                <div class="card-details-title">
+                  {{@model.name}}
+                </div>
 
-            <div class="card-details-desc"
-                {{did-insert this.setAutosizeListener}}
-                {{will-destroy this.removeAutosizeListener}}>
-              <Textarea
-                class="textbox-lines" 
-                rows="2"
-                @key-press={{this.cardDescKeyPress}}
-                @value={{this.cardDesc}}/>
-            </div>
+                <div class="card-details-to">
+                  <span>To</span>
+                  <input type="text" autofocus>
+                </div>
 
-            <div class="card-details-from">
-              <span>From</span>
-              <input type="text">
+                <div class="card-details-desc"
+                    {{did-insert this.setAutosizeListener}}
+                    {{will-destroy this.removeAutosizeListener}}>
+                  <Textarea
+                    class="textbox-lines" 
+                    rows="2"
+                    @key-press={{this.cardDescKeyPress}}
+                    @value={{this.cardDesc}}/>
+                </div>
+
+                <div class="card-details-from">
+                  <span>From</span>
+                  <input type="text">
+                </div>
             </div>
-        </div>
-      </div>
-    </AppreciationsCard>
+          </div>
+        </AppreciationsCard>
+      {{/animated-value}}
+    </AnimatedContainer>
   </div>
 
   <div class="share-options">
-    <div class="share-text">
-      Share this card via -
-    </div>
-    <div class="share-buttons">
-      <button class="btn"
-        {{on "click" this.downloadCard}}>
-          {{svg-jar "download"}}
-          Download card
-      </button>
-      <button class="btn tooltip"
-        disabled={{this.clipboardNotSupported}}
-        {{on "click" this.copyToClipboard}}>
-          {{svg-jar "clipboard"}}
-          Copy card to clipboard
+    {{#animated-if shoshowShareOptions use=this.fade}}
+      <div class="share-text">
+        Share this card via -
+      </div>
+      <div class="share-buttons">
+        <button class="btn"
+          {{on "click" this.downloadCard}}>
+            {{svg-jar "download"}}
+            Download card
+        </button>
+        <button class="btn tooltip"
+          disabled={{this.clipboardNotSupported}}
+          {{on "click" this.copyToClipboard}}>
+            {{svg-jar "clipboard"}}
+            Copy card to clipboard
 
-          {{#if this.clipboardNotSupported}}
-            <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
-          {{/if}}
-      </button>
-    </div>
+            {{#if this.clipboardNotSupported}}
+              <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
+            {{/if}}
+        </button>
+      </div>
+    {{/animated-if}}
   </div>
+
+
 </div>

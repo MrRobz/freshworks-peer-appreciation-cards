@@ -1,3 +1,4 @@
+/* eslint-disable require-yield */
 import Controller from '@ember/controller';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
@@ -5,14 +6,43 @@ import { inlineSvgFor } from 'ember-svg-jar/utils/make-svg';
 import html2canvas from 'html2canvas';
 import { inject as service } from '@ember/service';
 import { later } from '@ember/runloop';
+import resize from "ember-animated/motions/resize";
+import move from "ember-animated/motions/move";
+import { fadeIn } from 'ember-animated/motions/opacity';
 
 const CARD_DESC_CHAR_LIMIT = 360;
 
 export default class CardController extends Controller {
   @service notifications;
 
+  constructor(){
+    super(...arguments);
+
+    this.transition = this.transition.bind(this);
+  }
+
   @tracked
   cardDesc = "I am giving you this because...";
+
+  @tracked
+  shoshowShareOptions = true;
+  
+  transition = function*({ receivedSprites }) {
+    this.shoshowShareOptions = false;
+
+    receivedSprites.forEach(sprite => {
+      resize(sprite);
+      move(sprite);
+    });
+
+    later(this, () => this.shoshowShareOptions = true, 500)
+  }
+
+  fade = function*({ insertedSprites }) {
+    insertedSprites.forEach(sprite => {
+      fadeIn(sprite);
+    });
+  }
 
   get clipboardNotSupported() {
     let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);

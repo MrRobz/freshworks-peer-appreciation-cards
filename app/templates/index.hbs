@@ -5,23 +5,25 @@
   </div>
 
   <div class="card-list">
-    {{#each this.cultureQualities as |quality|}}
-      <div class="card-list-item"
-        {{on "click" (fn this.onCardClick quality) }}>
-        <AppreciationsCard 
-            @letter={{quality.letter}}
-            @size="s">
-          <div class="card-content">
-            <div class="card-content--letter">
-              {{quality.letter}}
-            </div>
+      {{#each this.cultureQualities as |quality|}}
+      <AnimatedContainer class="card-list-item" 
+          {{on "click" (fn this.onCardClick quality) }}>
+        {{#animated-value quality use=this.transition}}
+            <AppreciationsCard 
+                @letter={{quality.letter}}
+                @size="s">
+              <div class="card-content">
+                <div class="card-content--letter">
+                  {{quality.letter}}
+                </div>
 
-            <div class="card-content--title">
-              {{quality.name}}
-            </div>
-          </div>
-        </AppreciationsCard>
-      </div>
-    {{/each}}
+                <div class="card-content--title">
+                  {{quality.name}}
+                </div>
+              </div>
+            </AppreciationsCard>
+        {{/animated-value}}
+        </AnimatedContainer>
+      {{/each}}
   </div>
 </div>
