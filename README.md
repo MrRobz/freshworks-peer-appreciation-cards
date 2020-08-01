@@ -1,7 +1,7 @@
 # freshworks-peer-appreciation
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Ember app that helps in creating digital peer-appreciation cards and downloading them.
+![Image of appreciation card](https://i.ibb.co/5BsWxVh/Screenshot-2020-08-01-at-10-52-55-PM.png)
 
 ## Prerequisites
 
