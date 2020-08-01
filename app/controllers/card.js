@@ -108,6 +108,11 @@ export default class CardController extends Controller {
     ctx.fillStyle = "#52575C";
     this.wrapText(ctx, appreciationTextDesc, 400, 230, 600, 40);
 
+    ctx.font = "16px Kalam";
+    ctx.fillStyle = "#CACCCF";
+    let host = window.location.host;
+    ctx.fillText(`Build with ${host}`, 50, 580);
+
     document.querySelector("#dummy-div").style.display = "none"
     document.querySelector("#dummy-div").removeChild(clone);
 
