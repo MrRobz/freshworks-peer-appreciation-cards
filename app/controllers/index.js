@@ -20,4 +20,11 @@ export default class IndexController extends Controller {
   onCardClick(quality) {
     this.transitionToRoute('card', quality.id);
   }
+
+  @action
+  onCardClickEnter(quality, event) {
+    if (event.keyCode == 13) {
+      this.transitionToRoute('card', quality.id);
+    }
+  }
 }

@@ -200,4 +200,9 @@ export default class CardController extends Controller {
     }
     this.cardDesc = text.substring(0, CARD_DESC_CHAR_LIMIT);
   }
+
+  @action
+  focusInput(element) {
+    element.focus();
+  }
 }

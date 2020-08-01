@@ -1,13 +1,14 @@
 <div class="select-card--page">
   <div class="intro-wrapper">
-    <div class="intro-heading">Give one of your peers an appreciation for their good work.</div>
-    <div class="intro-sub">Choose one of these qualities to appreciate and make their day 🤗.</div>
+    <h2 class="intro-heading">Give one of your peers an appreciation for their good work.</h2>
+    <h4 class="intro-sub">Choose one of these qualities to appreciate and make their day 🤗.</h4>
   </div>
 
   <div class="card-list">
       {{#each this.cultureQualities as |quality|}}
-      <AnimatedContainer class="card-list-item" 
-          {{on "click" (fn this.onCardClick quality) }}>
+      <AnimatedContainer class="card-list-item" tabindex="0"
+          {{on "click" (fn this.onCardClick quality) }}
+          {{on "keypress" (fn this.onCardClickEnter quality) }}>
         {{#animated-value quality use=this.transition}}
             <AppreciationsCard 
                 @letter={{quality.letter}}
