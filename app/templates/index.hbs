@@ -27,3 +27,7 @@
       {{/each}}
   </div>
 </div>
+
+{{#each this.cultureQualities as |quality|}}
+  <link rel="prefetch" href={{quality.imageLoc}}>
+{{/each}}
