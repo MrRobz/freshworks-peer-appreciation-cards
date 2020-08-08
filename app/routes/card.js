@@ -7,4 +7,9 @@ export default class CardRoute extends Route {
 
     return qualities.find(q => q.id === qualityId);
   }
+
+  setupController(controller, model) {
+    controller.cardDesc = "I am giving you this because...";
+    super.setupController(controller, model);
+  }
 }

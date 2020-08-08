@@ -111,7 +111,7 @@ export default class CardController extends Controller {
     ctx.font = "16px Kalam";
     ctx.fillStyle = "#CACCCF";
     let host = window.location.host;
-    ctx.fillText(`Build with ${host}`, 50, 580);
+    ctx.fillText(`Built with ${host}`, 50, 580);
 
     document.querySelector("#dummy-div").style.display = "none"
     document.querySelector("#dummy-div").removeChild(clone);
@@ -194,7 +194,7 @@ export default class CardController extends Controller {
   cardDescKeyPress(text) {
     if (text.length > CARD_DESC_CHAR_LIMIT) {
       this.notifications.clearAll();
-      this.notifications.warning(`Card message must be no longer than ${CARD_DESC_CHAR_LIMIT} characters`, {
+      this.notifications.warning(`Card message must be no longer than ${CARD_DESC_CHAR_LIMIT} characters.`, {
         autoClear: true,
       });
     }
