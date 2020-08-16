@@ -13,3 +13,12 @@
 
 {{outlet}}
 <NotificationContainer position="top" zindex="9999"/>
+
+<!-- Modal portal -->
+{{#from-elsewhere name="app-modal" as |modal|}}
+  <AnimatedContainer>
+    {{#animated-if modal.isOpen use=modalTransition initialInsertion=true finalRemoval=true }}
+        {{component modal.component isOpen=this.showModalContent}}
+    {{/animated-if}}
+  </AnimatedContainer>
+{{/from-elsewhere}}
