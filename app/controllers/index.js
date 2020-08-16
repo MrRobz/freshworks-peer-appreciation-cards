@@ -36,6 +36,7 @@ export default class IndexController extends Controller {
   @action
   onCardInfoClick(quality, event) {
     event.stopPropagation();
+    event.preventDefault();
     
     this.showCardDetailsModal = true;
   }

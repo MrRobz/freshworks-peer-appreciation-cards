@@ -4,6 +4,9 @@
   position: relative;
   width: 100%;
   height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 50px;
 
 
   .back-btn {
@@ -16,12 +19,22 @@
       width: 50px;
       height: 50px;
     }
+
+    &:hover {
+      svg {
+        .circle {
+          fill: #17274E;
+        }
+        .arrow {
+          stroke: #fff;
+        }
+      }
+    }
   }
 
 
   .card-wrapper {
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: center;
   }
@@ -29,7 +42,7 @@
   .appreciation-card {
     width: 70vw;
     height: 60vh;
-    margin: 50px;
+    margin: 50px 50px 35px;
     max-width: 1000px;
     // min-height: 400px;
     // min-width: 800px;
@@ -145,44 +158,32 @@
   }
 
   .share-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    width: 100%;
-    margin: 10px auto;
-    margin-bottom: 90px;
-    min-height: 80px;
-  }
 
-  .share-text {
-    font-size: 1.2rem;
-    color: #52575C;
   }
 
   .share-buttons {
     display: flex;
     margin-top: 16px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #25282B;
 
     .btn {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      padding: 8px 19px;
+      margin-left: 20px;
+      
+      font-weight: 600;
+      color: #17274E;
       background: #FFFFFF;
-      border: 1px solid #52575C;
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      padding: 8px 12px;
-      margin-left: 25px;
-      color: inherit;
+      border: 1.5px solid #17274E;
+      border-radius: 6px;
 
       &:hover:not(:disabled) {
-        box-shadow: none;
-        background: #E8E8E8;
+        background: #17274E;
+        color: #FFFFFF;
       }
 
       &:disabled {
@@ -190,12 +191,6 @@
         background-color: #cccccc;
         color: #666666;
         cursor: default;
-
-        svg {
-          path {
-            stroke: #666666; 
-          }
-        }
       }
 
       svg {

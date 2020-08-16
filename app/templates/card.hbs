@@ -1,7 +1,7 @@
 <div class="quality-card--page">
   <div class="back-btn"
     {{on "click" this.goBack}}>
-    {{svg-jar "arrow-left-circle"}}
+    {{svg-jar "back"}}
   </div>
 
   <div id="dummy-div" class="dummy-div">
@@ -49,30 +49,33 @@
     </AnimatedContainer>
   </div>
 
-  <div class="share-options">
-    {{#animated-if shoshowShareOptions use=this.fade}}
-      <div class="share-text">
-        Share this card via -
-      </div>
-      <div class="share-buttons">
-        <button class="btn"
-          {{on "click" this.downloadCard}}>
-            {{svg-jar "download"}}
-            Download card
-        </button>
-        <button class="btn tooltip"
-          disabled={{this.clipboardNotSupported}}
-          {{on "click" this.copyToClipboard}}>
-            {{svg-jar "clipboard"}}
-            Copy card to clipboard
+  <AnimatedContainer>
+    <div class="share-options">
+      {{#animated-if shoshowShareOptions use=this.fade}}
+        <div class="share-buttons">
+          <button 
+            type="button"
+            class="btn"
+            {{on "click" this.downloadCard}}>
+              {{svg-jar "download"}}
+              Download card
+          </button>
+          <button 
+            type="button"
+            class="btn tooltip"
+            disabled={{this.clipboardNotSupported}}
+            {{on "click" this.copyToClipboard}}>
+              {{svg-jar "clipboard"}}
+              Copy card to clipboard
 
-            {{#if this.clipboardNotSupported}}
-              <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
-            {{/if}}
-        </button>
-      </div>
-    {{/animated-if}}
-  </div>
+              {{#if this.clipboardNotSupported}}
+                <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
+              {{/if}}
+          </button>
+        </div>
+      {{/animated-if}}
+    </div>
+  </AnimatedContainer>
 
 
 </div>

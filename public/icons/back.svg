@@ -1,0 +1,6 @@
+<svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <path class="circle" d="M2 55C2.00001 25.7289 25.7289 1.99999 55 2C84.2711 2 108 25.7289 108 55C108 84.2711 84.2711 108 55 108C25.7289 108 2 84.2711 2 55Z" fill="white" stroke="#17274E" stroke-width="4"/>
+    <path class="arrow" d="M61.5491 73.098L43 54.5491L61.5491 36.0001" stroke="#17274E" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>
