@@ -1,12 +1,12 @@
+<div class="dummy-wrapper">
+</div>
+
 <div class="quality-card--page">
   <div
     role="button"
     class="back-btn"
     {{on "click" this.goBack}}>
     {{svg-jar "back"}}
-  </div>
-
-  <div id="dummy-div" class="dummy-div">
   </div>
 
   <div class="card-wrapper">
@@ -49,8 +49,9 @@
 
                     <div class="card-details-to">
                       <span>To</span>
-                      <input type="text"
-                        {{did-insert this.focusInput}}>
+                      <Input name="person-name"
+                         @value={{this.cardTo}}
+                         {{did-insert this.focusInput}} />
                     </div>
 
                     <div class="card-details-desc"
@@ -65,7 +66,8 @@
 
                     <div class="card-details-from">
                       <span>From</span>
-                      <input type="text">
+                      <Input name="person-from"
+                         @value={{this.cardFrom}}/>
                     </div>
                   </div>
               </div>

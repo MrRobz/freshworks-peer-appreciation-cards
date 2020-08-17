@@ -265,24 +265,17 @@
     right: 0;
     padding: 20px;
   }
+}
 
-  .dummy-div {
-    // display: flex;
-    display: none;
-    flex: 1;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    width: 1100px;
-    height: 600px;
-    opacity: 0.01;
-    z-index: 1;
-    background: gray;
-
-
-    .appreciation-card {
-      width: 1000px;
-      height: 500px;
-    }
-  }
+.dummy-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1100px;
+  height: 600px;
+  top: 0;
+  left: 0;
+  opacity: 0;
 }

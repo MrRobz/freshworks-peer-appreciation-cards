@@ -63,6 +63,5 @@
     "edition": "octane"
   },
   "dependencies": {
-    "html2canvas": "^1.0.0-rc.5"
   }
 }
