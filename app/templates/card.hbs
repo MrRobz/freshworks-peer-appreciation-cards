@@ -12,7 +12,7 @@
   <div class="card-wrapper">
     <AnimatedContainer>
       {{#animated-value @model use=this.transition}}
-        <div>
+        <div class="appreciation-card-wrapper">
           {{#animated-if this.showQualityInfo use=this.cardInfotransition}}
             <div class="appreciation-card card-quality-info card-quality-info--{{@model.letter}}">
 
@@ -77,33 +77,29 @@
   </div>
 
   <div class="share-options">
-    <AnimatedContainer>
+    <div class="share-buttons">
       {{#animated-if this.shoshowShareOptions use=this.fade}}
-        <div class="share-buttons">
-          <button 
-            type="button"
-            class="btn"
-            {{on "click" this.downloadCard}}>
-              {{svg-jar "download"}}
-              Download card
-          </button>
-          <button 
-            type="button"
-            class="btn tooltip"
-            disabled={{this.clipboardNotSupported}}
-            {{on "click" this.copyToClipboard}}>
-              {{svg-jar "clipboard"}}
-              Copy card to clipboard
+        <button 
+          type="button"
+          class="btn"
+          {{on "click" this.downloadCard}}>
+            {{svg-jar "download"}}
+            Download card
+        </button>
+        <button 
+          type="button"
+          class="btn tooltip"
+          disabled={{this.clipboardNotSupported}}
+          {{on "click" this.copyToClipboard}}>
+            {{svg-jar "clipboard"}}
+            Copy card to clipboard
 
-              {{#if this.clipboardNotSupported}}
-                <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
-              {{/if}}
-          </button>
-        </div>
-      {{else}}
-        <div class="share-buttons"></div>
+            {{#if this.clipboardNotSupported}}
+              <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
+            {{/if}}
+        </button>
       {{/animated-if}}
-    </AnimatedContainer>
+    </div>
   </div>
 
 </div>

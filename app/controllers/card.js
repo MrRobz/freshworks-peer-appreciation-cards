@@ -110,14 +110,14 @@ export default class CardController extends Controller {
     let canvas = await html2canvas(dummyDiv);
     let ctx = canvas.getContext("2d");
     
-    ctx.font = "25px Kalam";
+    ctx.font = "25px Patrick Hand";
     ctx.fillStyle = "#52575C";
-    this.wrapText(ctx, appreciationTextDesc, 400, 230, 600, 40);
+    this.wrapText(ctx, appreciationTextDesc, 400, 310, 600, 40);
 
-    ctx.font = "16px Kalam";
+    ctx.font = "16px Patrick Hand";
     ctx.fillStyle = "#CACCCF";
     let host = window.location.host;
-    ctx.fillText(`Built with ${host}`, 50, 580);
+    ctx.fillText(`Built with ${host}`, 50, 650);
 
     document.querySelector("#dummy-div").style.display = "none"
     document.querySelector("#dummy-div").removeChild(clone);
@@ -157,6 +157,7 @@ export default class CardController extends Controller {
   async downloadCard() {
     let { canvas } = await this.generateCanvasFromDiv();
 
+    // uncomment this for debugging
     // document.body.appendChild(canvas);
 
     let link = document.createElement('a');
