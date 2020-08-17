@@ -34,7 +34,7 @@
                 @size="l">
               <div role="button"
                   class="card-info"
-                  {{on "click" (fn this.onCardInfoClick @model)}}>
+                  {{on "click" this.onCardInfoClick}}>
                 {{svg-jar "info" width="20" height="20"}}
               </div>
               <div class="card-content">

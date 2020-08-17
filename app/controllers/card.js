@@ -213,9 +213,8 @@ export default class CardController extends Controller {
   }
 
   @action
-  onCardInfoClick(quality) {
+  onCardInfoClick() {
     this.showQualityInfo = true;
-    console.log({quality});
   }
   @action
   onCardInfoCloseClick() {
