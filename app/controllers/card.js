@@ -9,6 +9,7 @@ import { later } from '@ember/runloop';
 import resize from "ember-animated/motions/resize";
 import move from "ember-animated/motions/move";
 import { fadeIn } from 'ember-animated/motions/opacity';
+import fade from 'ember-animated/transitions/fade';
 
 const CARD_DESC_CHAR_LIMIT = 360;
 
@@ -21,8 +22,13 @@ export default class CardController extends Controller {
     this.transition = this.transition.bind(this);
   }
 
+  cardInfotransition = fade
+
   @tracked
   cardDesc = "I am giving you this because...";
+
+  @tracked
+  showQualityInfo = false;
 
   @tracked
   shoshowShareOptions = true;
@@ -204,5 +210,15 @@ export default class CardController extends Controller {
   @action
   focusInput(element) {
     element.focus();
+  }
+
+  @action
+  onCardInfoClick(quality) {
+    this.showQualityInfo = true;
+    console.log({quality});
+  }
+  @action
+  onCardInfoCloseClick() {
+    this.showQualityInfo = false;
   }
 }

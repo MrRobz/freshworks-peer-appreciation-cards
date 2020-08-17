@@ -10,23 +10,23 @@
 
   &.card-icon {
     &--c {
-      --card-color: #FFA800;
+      --card-color: #ffd15b;
     }
     &--h {
-      --card-color: #45A4EC;
+      --card-color: #2281c6;
     }
     &--a {
-      --card-color: #25C16F;
+      --card-color: #ed5d5e;
     }
     &--t {
-      --card-color: #9B65C3;
+      --card-color: #ee552e;
     }
   }
 
   &.size {
     &--l {
-      --top-left-icon-size: 104px;
-      --bottom-left-icon-size: 150px;
+      --top-left-icon-size: 120px;
+      --bottom-left-icon-size: 180px;
       --bottom-right-icon-size: 48px;
     }
   }
@@ -35,44 +35,27 @@
   .card-icon-top-left {
     width: var(--top-left-icon-size);
     height: var(--top-left-icon-size);
-    border-top-left-radius: 7px;
-
-    circle {
-      fill: var(--card-color);
-    }
-
-    path {
-      stroke: var(--card-color);
-      stroke-width: 1px;
-    }
+    color: var(--card-color);
   }
 
   .card-icon-bottom-left {
     width: var(--bottom-left-icon-size);
     height: auto;
-
-    .p1, 
-    circle {
-      fill: var(--card-color);
-    }
-
-    .p2 {
-      stroke: var(--card-color);
-      stroke-width: 2px;
-    }
+    color: var(--card-color);
   }
 
   .card-icon--top-left {
     position: absolute;
     top: -1px;
     left: -1px;
+    border-top-left-radius: 8px;
   }
 
   .card-icon--bottom-left {
     position: absolute;
-    bottom: -2px;
+    bottom: -1px;
     left: -1px;
-    border-bottom-left-radius: 9px;
+    border-bottom-left-radius: 8px;
   }
 
   .card-logo-right {

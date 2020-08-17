@@ -4,8 +4,6 @@
   position: relative;
   width: 100%;
   height: 100%;
-  align-items: center;
-  justify-content: center;
   padding-bottom: 50px;
 
 
@@ -40,12 +38,10 @@
   }
 
   .appreciation-card {
-    width: 70vw;
-    height: 60vh;
+    width: 896px;
+    height: 480px;
     margin: 50px 50px 35px;
     max-width: 1000px;
-    // min-height: 400px;
-    // min-width: 800px;
   }
 
   .card-content {
@@ -81,14 +77,14 @@
     font-weight: bold;
     font-size: 25px;
     line-height: 30px;
-    color: #25282B;
+    color: #474747;
     margin-top: 35px;
     transform: translate(-160px);
   }
 
   .card-details-to {
     margin-top: 24px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-size: 25px;
     line-height: 40px;
     color: #52575C;
@@ -105,7 +101,7 @@
 
   .card-details-desc {
     margin-top: 15px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-weight: 300;
     font-size: 25px;
     line-height: 40px;
@@ -142,7 +138,7 @@
 
   .card-details-from {
     margin-top: 24px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-size: 25px;
     line-height: 40px;
     color: #52575C;
@@ -158,7 +154,9 @@
   }
 
   .share-options {
-
+    min-height: 50px;
+    margin: 0 auto;
+    position: relative;
   }
 
   .share-buttons {
@@ -197,6 +195,68 @@
         margin-right: 8px;
       }
     }
+  }
+
+  .card-info {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+
+    &:hover {
+      svg {
+        circle {
+          stroke: #007EFF;
+        }
+        path {
+          fill: #007EFF;
+        }
+      }
+    }
+  }
+
+  .card-quality-info {
+    &--c {
+      --card-color: #ffd15b;
+      --card-text-color: #17274E;
+    }
+    &--h {
+      --card-color: #2281c6;
+      --card-text-color: #ffff;
+    }
+    &--a {
+      --card-color: #ed5d5e;
+      --card-text-color: #ffff;
+    }
+    &--t {
+      --card-color: #ee552e;
+      --card-text-color: #ffff;
+    }
+
+    border: none;
+    position: relative;
+    background: var(--card-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px;
+    
+    ul li {
+      font-family: 'Sailec-Medium';
+      font-size: 20px;
+      color: var(--card-text-color);
+      margin-bottom: 22px;
+    }
+  }
+
+  .info-close-icon {
+    cursor: pointer;
+    box-sizing: content-box;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
   }
 
   .dummy-div {
