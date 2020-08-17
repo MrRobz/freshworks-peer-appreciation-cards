@@ -13,11 +13,11 @@
                 class="card-list-item"
                 {{on "click" (fn this.onCardClick quality)}}
                 {{on "keypress" (fn this.onCardClickEnter quality)}}>
-              <div role="button"
+              {{!-- <div role="button"
                   class="card-info"
                   {{on "click" (fn this.onCardInfoClick quality)}}>
                 {{svg-jar "info" width="20" height="20"}}
-              </div>
+              </div> --}}
               <div class="card-image">
                 <img src="{{quality.imageLoc}}" alt="{{quality.imageAlt}}">
               </div>

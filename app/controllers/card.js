@@ -36,7 +36,7 @@ export default class CardController extends Controller {
   transition = function*({ receivedSprites }) {
     this.shoshowShareOptions = false;
 
-    receivedSprites.forEach(sprite => {
+    receivedSprites.forEach(sprite => {  
       resize(sprite);
       move(sprite);
     });
@@ -88,12 +88,12 @@ export default class CardController extends Controller {
   async generateCanvasFromDiv()  {
     // eslint-disable-next-line no-undef
     let oldTopLeftIcon = inlineSvgFor('card-top-left', (assetId) => require(`ember-svg-jar/inlined/${assetId}`).default, { class: "card-icon-top-left card-icon--top-left"});
-    let newTopLeftIcon = oldTopLeftIcon.replace(/fill="R"/g, `fill="${this.model.color}"`);
-    newTopLeftIcon = newTopLeftIcon.replace(/stroke="R"/g, `stroke="${this.model.color}"`);
+    let newTopLeftIcon = oldTopLeftIcon.replace(/fill="currentcolor"/g, `fill="${this.model.color}"`);
+    newTopLeftIcon = newTopLeftIcon.replace(/stroke="currentcolor"/g, `stroke="${this.model.color}"`);
     // eslint-disable-next-line no-undef
     let oldTopBottomIcon = inlineSvgFor('card-bottom-left', (assetId) => require(`ember-svg-jar/inlined/${assetId}`).default, { class: "card-icon-bottom-left card-icon card-icon--bottom-left"});
-    let newTopBottomIcon = oldTopBottomIcon.replace(/fill="R"/g, `fill="${this.model.color}"`);
-    newTopBottomIcon = newTopBottomIcon.replace(/stroke="R"/g, `stroke="${this.model.color}"`);
+    let newTopBottomIcon = oldTopBottomIcon.replace(/fill="currentcolor"/g, `fill="${this.model.color}"`);
+    newTopBottomIcon = newTopBottomIcon.replace(/stroke="currentcolor"/g, `stroke="${this.model.color}"`);
 
     let node = document.querySelector('.appreciation-card');
     let clone = node.cloneNode(true);

@@ -155,8 +155,8 @@
 
   .share-options {
     min-height: 50px;
-    margin: 0 auto;
-    position: relative;
+    display: flex;
+    justify-content: center;
   }
 
   .share-buttons {
@@ -170,7 +170,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 8px 19px;
+      padding: 17px 38px;
       margin-left: 20px;
       
       font-weight: 600;
