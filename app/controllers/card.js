@@ -159,8 +159,11 @@ export default class CardController extends Controller {
     ctx.fillStyle = "#ffff";
     this.roundRect(ctx, 50, 50, 1000, 500, 8, true);
 
-    let base_image = await this.loadImage(this.model.lineImageLoc);
-    ctx.drawImage(base_image, 70, 155, 264, 264);
+    let lineCharacterImage = await this.loadImage(this.model.lineImageLoc);
+    ctx.drawImage(lineCharacterImage, 70, 155, 264, 264);
+
+    let FreshworksDew = await this.loadImage("/images/freshworks-dew.png");
+    ctx.drawImage(FreshworksDew, 975, 475, 45, 45);
     
     let parser = new DOMParser();
     // eslint-disable-next-line no-undef
