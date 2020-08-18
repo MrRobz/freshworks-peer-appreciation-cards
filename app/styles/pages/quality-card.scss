@@ -13,6 +13,7 @@
     top: 10px;
     left: 10px;
     cursor: pointer;
+    z-index: 10;
 
     svg {
       width: 50px;
@@ -278,4 +279,12 @@
   top: 0;
   left: 0;
   opacity: 0;
+}
+
+@media (min-width: 768px) and (max-width: 800px) {
+  .quality-card--page {
+    .appreciation-card-wrapper {
+      scale: 0.8;
+    }
+  }
 }
