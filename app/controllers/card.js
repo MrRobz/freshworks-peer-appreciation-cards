@@ -290,8 +290,12 @@ export default class CardController extends Controller {
   }
 
   @action
-  goBack() {
-    this.transitionToRoute("index");
+  goBack(event) {
+    if (event.keyCode == 13) {
+      this.transitionToRoute("index");
+    } else if (event.type === "click") {
+      this.transitionToRoute("index");
+    }
   }
 
   @action

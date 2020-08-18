@@ -4,8 +4,11 @@
 <div class="quality-card--page">
   <div
     role="button"
+    aria-label="back button"
+    tabindex="0"
     class="back-btn"
-    {{on "click" this.goBack}}>
+    {{on "click" this.goBack}}
+    {{on "keypress" this.goBack}}>
     {{svg-jar "back"}}
   </div>
 
@@ -33,6 +36,7 @@
                 @letter={{@model.letter}}
                 @size="l">
               <div role="button"
+                  aria-label="card info"
                   class="card-info"
                   {{on "click" this.onCardInfoClick}}>
                 {{svg-jar "info" width="20" height="20"}}
@@ -48,8 +52,9 @@
                     </div>
 
                     <div class="card-details-to">
-                      <span>To</span>
+                      <label for="card-name">To</label>
                       <Input name="person-name"
+                          id="card-name"
                          @value={{this.cardTo}}
                          {{did-insert this.focusInput}} />
                     </div>
@@ -65,9 +70,11 @@
                     </div>
 
                     <div class="card-details-from">
-                      <span>From</span>
-                      <Input name="person-from"
-                         @value={{this.cardFrom}}/>
+                      <label for="card-from">From</label>
+                      <Input 
+                          id="card-from"
+                          name="person-from"
+                          @value={{this.cardFrom}}/>
                     </div>
                   </div>
               </div>
