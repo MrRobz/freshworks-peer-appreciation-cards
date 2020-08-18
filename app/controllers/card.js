@@ -154,6 +154,10 @@ export default class CardController extends Controller {
     ctx.fillStyle = "#ffff";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+    ctx.font = "16px Patrick Hand";
+    ctx.fillStyle = "#CACCCF";
+    let host = window.location.host;
+    ctx.fillText(`Built with ${host}`, 52, 570);
 
     ctx.strokeStyle = "#E8E8E8";
     ctx.fillStyle = "#ffff";
@@ -164,7 +168,7 @@ export default class CardController extends Controller {
     ctx.drawImage(lineCharacterImage, 70, 155, 264, 264);
 
     let FreshworksDew = await this.loadImage("/images/freshworks-dew.png");
-    ctx.drawImage(FreshworksDew, 975, 475, 45, 45);
+    ctx.drawImage(FreshworksDew, 980, 480, 45, 45);
     
     let parser = new DOMParser();
     // eslint-disable-next-line no-undef
@@ -214,11 +218,6 @@ export default class CardController extends Controller {
     ctx.fillRect(433, 155, text.width + 20, 2);
     text = ctx.measureText(this.cardFrom);
     ctx.fillRect(453, 530, text.width + 20, 2);
-    
-    ctx.font = "16px Patrick Hand";
-    ctx.fillStyle = "#CACCCF";
-    let host = window.location.host;
-    ctx.fillText(`Built with ${host}`, 52, 570);
 
     return { canvas, ctx };
   }

@@ -6,7 +6,7 @@ export const qualities = [
     color: '#ffd15b',
     imageLoc: '/images/craftsmanship.png',
     lineImageLoc: '/images/craftsmanship-line-image.png',
-    imageAlt: '',
+    imageAlt: 'woman drawing flowers on artboard.',
     description: {
       meaning: [
         "We strive to be world-class in everything we do.",
@@ -23,7 +23,7 @@ export const qualities = [
     color: '#2281c6',
     imageLoc: '/images/happy-work-environment.png',
     lineImageLoc: '/images/happy-work-environment-line-image.png',
-    imageAlt: '',
+    imageAlt: 'three co-workers happily working together.',
     description: {
       meaning: [
         "We play to our strengths and choose suitable career paths.",
@@ -39,7 +39,7 @@ export const qualities = [
     color: '#ed5d5e',
     imageLoc: '/images/agility-through-empowerment.png',
     lineImageLoc: '/images/agility-through-empowerment-line-image.png',
-    imageAlt: '',
+    imageAlt: 'Boy doing lab experiments with safty glasses.',
     description: {
       meaning: [
         "We take Ownership, accountability and a sense of pride in whatever we do. We get things done and don’t rest until completion.",
@@ -56,7 +56,7 @@ export const qualities = [
     color: '#ee552e',
     imageLoc: '/images/true-friend-of-the-customer.png',
     lineImageLoc: '/images/true-friend-of-the-customer-line-image.png',
-    imageAlt: '',
+    imageAlt: 'Boy holding freshworks logo in one hand and customers in the other.',
     description: {
       meaning: [
         "We do what’s right for the customer and the company.",
