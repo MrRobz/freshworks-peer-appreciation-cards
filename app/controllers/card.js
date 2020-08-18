@@ -158,6 +158,7 @@ export default class CardController extends Controller {
     ctx.strokeStyle = "#E8E8E8";
     ctx.fillStyle = "#ffff";
     this.roundRect(ctx, 50, 50, 1000, 500, 8, true);
+    ctx.clip();
 
     let lineCharacterImage = await this.loadImage(this.model.lineImageLoc);
     ctx.drawImage(lineCharacterImage, 70, 155, 264, 264);
