@@ -55,6 +55,7 @@
    display: flex;
    height: 100%;
    width: 100%;   
+   overflow: hidden;
   }
 
   .card-image-section {
@@ -86,7 +87,8 @@
     line-height: 30px;
     color: #474747;
     margin-top: 35px;
-    transform: translate(-160px);
+    margin-right: 235px;
+    white-space: nowrap;
   }
 
   .card-details-to {
