@@ -7,6 +7,9 @@ module.exports = function(defaults) {
     'ember-cli-notifications': {
       autoClear: true,
       clearDuration: 2400
+    },
+    brotli: {
+      appendSuffix: false
     }
   });
 
