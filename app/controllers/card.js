@@ -37,6 +37,14 @@ export default class CardController extends Controller {
 
   @tracked
   shoshowShareOptions = true;
+
+  @tracked
+  showInfoPopover = !localStorage.getItem("stopShowingInfoPopover");
+
+
+  get showInfoTooltip() {
+    return !this.showInfoPopover;
+  }
   
   transition = function*({ receivedSprites }) {
     this.shoshowShareOptions = false;
@@ -46,7 +54,9 @@ export default class CardController extends Controller {
       move(sprite);
     });
 
-    later(this, () => this.shoshowShareOptions = true, 500)
+    later(this, () => {
+      this.shoshowShareOptions = true;
+    }, 500);
   }
 
   fade = function*({ insertedSprites }) {
@@ -317,9 +327,18 @@ export default class CardController extends Controller {
   @action
   onCardInfoClick() {
     this.showQualityInfo = true;
+    this.showInfoPopover = false;
+    localStorage.setItem("stopShowingInfoPopover", true);
   }
   @action
   onCardInfoCloseClick() {
     this.showQualityInfo = false;
+  }
+
+  @action
+  onInfoPopoverClick(event) {
+    event.stopPropagation();
+    this.showInfoPopover = false;
+    localStorage.setItem("stopShowingInfoPopover", true);
   }
 }

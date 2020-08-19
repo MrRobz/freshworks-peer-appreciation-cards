@@ -35,12 +35,33 @@
             <AppreciationsCard
                 @letter={{@model.letter}}
                 @size="l">
+
               <div role="button"
                   aria-label="card info"
                   class="card-info"
                   {{on "click" this.onCardInfoClick}}>
-                {{svg-jar "info" width="20" height="20"}}
+                {{svg-jar "info" id="info123" width="20" height="20"}}
               </div>
+
+              {{#if this.showInfoTooltip}}
+                <EmberTooltip @targetId="info123" @tooltipClass="info-tooltip">
+                  Click to know more about "{{@model.name}}".
+                </EmberTooltip>
+              {{/if}}
+
+              <EmberPopover 
+                  @targetId="info123" 
+                  @side="right" 
+                  @isShown={{this.showInfoPopover}} 
+                  @event="none"
+                  class="info-popover">
+                <p>Click here to know what <strong>{{@model.name}}</strong> means to us.</p>
+                <button type="button"
+                    {{on "click" this.onInfoPopoverClick}}>
+                  Got it
+                </button>
+              </EmberPopover>
+
               <div class="card-content">
                 <div class="card-image-section">
                     <img src="{{@model.lineImageLoc}}" alt="{{@model.imageAlt}}">
@@ -104,7 +125,7 @@
             Copy card to clipboard
 
             {{#if this.clipboardNotSupported}}
-              <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
+              <EmberTooltip @text="I'm afraid your browser does not support this functionality." />
             {{/if}}
         </button>
       {{/animated-if}}

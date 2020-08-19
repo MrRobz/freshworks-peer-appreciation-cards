@@ -218,6 +218,10 @@
     right: 0;
     padding: 20px;
 
+    svg {
+      outline: none;
+    }
+
     &:hover {
       svg {
         circle {
@@ -271,6 +275,21 @@
     top: 0;
     right: 0;
     padding: 20px;
+  }
+
+  .info-tooltip {
+    width: max-content;
+    max-width: 250px;
+  }
+
+  .ember-animated-top-collapse {
+    .ember-popover {
+      display: none;
+    }
+  }
+
+  .ember-popover {
+    width: 200px;
   }
 }
 
