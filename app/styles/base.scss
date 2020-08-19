@@ -79,3 +79,30 @@ body {
     cursor: pointer;
   }
 }
+
+.mobile-screen-popup {
+  display: none;
+  font-size: 1rem;
+
+  .construction-icon {
+    font-size: 5rem;
+  }
+
+  .text {
+    max-width: 333px;
+    line-height: 1.3rem;
+  }
+
+  @media all and (min-width:0px) and (max-width: 700px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--gray-100);
+  }
+}
