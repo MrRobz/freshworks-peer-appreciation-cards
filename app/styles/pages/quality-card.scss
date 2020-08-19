@@ -4,6 +4,8 @@
   position: relative;
   width: 100%;
   height: 100%;
+  padding-bottom: 50px;
+  justify-content: center;
 
 
   .back-btn {
@@ -11,34 +13,52 @@
     top: 10px;
     left: 10px;
     cursor: pointer;
+    z-index: 10;
+    outline: none;
+
 
     svg {
       width: 50px;
       height: 50px;
+    }
+
+    &:hover,
+    &:focus {
+      svg {
+        .circle {
+          fill: #17274E;
+        }
+        .arrow {
+          stroke: #fff;
+        }
+      }
     }
   }
 
 
   .card-wrapper {
     display: flex;
-    flex: 1;
     align-items: center;
     justify-content: center;
   }
 
-  .appreciation-card {
-    width: 70vw;
-    height: 60vh;
-    margin: 50px;
+  .appreciation-card-wrapper {
+    width: 896px;
+    height: 480px;
+    margin: 50px 50px 35px;
     max-width: 1000px;
-    // min-height: 400px;
-    // min-width: 800px;
+  }
+
+  .appreciation-card {
+    width: 100%;
+    height: 100%;
   }
 
   .card-content {
    display: flex;
    height: 100%;
    width: 100%;   
+   overflow: hidden;
   }
 
   .card-image-section {
@@ -68,14 +88,15 @@
     font-weight: bold;
     font-size: 25px;
     line-height: 30px;
-    color: #25282B;
+    color: #474747;
     margin-top: 35px;
-    transform: translate(-160px);
+    margin-right: 235px;
+    white-space: nowrap;
   }
 
   .card-details-to {
     margin-top: 24px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-size: 25px;
     line-height: 40px;
     color: #52575C;
@@ -92,7 +113,7 @@
 
   .card-details-desc {
     margin-top: 15px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-weight: 300;
     font-size: 25px;
     line-height: 40px;
@@ -104,6 +125,7 @@
       width: calc(100% - 100px);
       border: none;
       outline: none;
+      letter-spacing: 0.025em;
 
       $fontSize: 20px;
       $lineWidth: 2px;
@@ -129,7 +151,7 @@
 
   .card-details-from {
     margin-top: 24px;
-    font-family: 'Kalam', cursive;
+    font-family: 'Patrick Hand', cursive;
     font-size: 25px;
     line-height: 40px;
     color: #52575C;
@@ -138,51 +160,42 @@
       outline: none;
       border: none;
       border-bottom: 2px solid #DBDDE0;
-      width: 200px;
+      width: 250px;
       margin-left: 10px;
       padding: 0 10px;
     }
   }
 
   .share-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    max-width: 1000px;
-    width: 100%;
-    margin: 10px auto;
-    margin-bottom: 90px;
     min-height: 80px;
-  }
-
-  .share-text {
-    font-size: 1.2rem;
-    color: #52575C;
+    display: flex;
+    justify-content: center;
   }
 
   .share-buttons {
     display: flex;
     margin-top: 16px;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     color: #25282B;
 
     .btn {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
+      padding: 17px 38px;
+      margin-left: 20px;
+      
+      font-weight: 600;
+      color: #17274E;
       background: #FFFFFF;
-      border: 1px solid #52575C;
-      box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
-      border-radius: 5px;
-      padding: 8px 12px;
-      margin-left: 25px;
-      color: inherit;
+      border: 1.5px solid #17274E;
+      border-radius: 6px;
 
-      &:hover:not(:disabled) {
-        box-shadow: none;
-        background: #E8E8E8;
+      &:hover:not(:disabled),
+      &:focus:not(:disabled) {
+        background: #17274E;
+        color: #FFFFFF;
       }
 
       &:disabled {
@@ -190,12 +203,6 @@
         background-color: #cccccc;
         color: #666666;
         cursor: default;
-
-        svg {
-          path {
-            stroke: #666666; 
-          }
-        }
       }
 
       svg {
@@ -204,23 +211,86 @@
     }
   }
 
-  .dummy-div {
-    // display: flex;
-    display: none;
-    flex: 1;
+  .card-info {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+
+    &:hover {
+      svg {
+        circle {
+          stroke: #007EFF;
+        }
+        path {
+          fill: #007EFF;
+        }
+      }
+    }
+  }
+
+  .card-quality-info {
+    &--c {
+      --card-color: #ffd15b;
+      --card-text-color: #17274E;
+    }
+    &--h {
+      --card-color: #2281c6;
+      --card-text-color: #ffff;
+    }
+    &--a {
+      --card-color: #ed5d5e;
+      --card-text-color: #ffff;
+    }
+    &--t {
+      --card-color: #ee552e;
+      --card-text-color: #ffff;
+    }
+
+    border: none;
+    position: relative;
+    background: var(--card-color);
+    display: flex;
     align-items: center;
     justify-content: center;
+    padding: 50px;
+    
+    ul li {
+      font-family: 'Sailec-Medium';
+      font-size: 20px;
+      color: var(--card-text-color);
+      margin-bottom: 22px;
+    }
+  }
+
+  .info-close-icon {
+    cursor: pointer;
+    box-sizing: content-box;
     position: absolute;
-    width: 1100px;
-    height: 600px;
-    opacity: 0.01;
-    z-index: 1;
-    background: gray;
+    top: 0;
+    right: 0;
+    padding: 20px;
+  }
+}
 
+.dummy-wrapper {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 1100px;
+  height: 600px;
+  top: 0;
+  left: 0;
+  opacity: 0;
+}
 
-    .appreciation-card {
-      width: 1000px;
-      height: 500px;
+@media (min-width: 768px) and (max-width: 800px) {
+  .quality-card--page {
+    .appreciation-card-wrapper {
+      scale: 0.8;
     }
   }
 }

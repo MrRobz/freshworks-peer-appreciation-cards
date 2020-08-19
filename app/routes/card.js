@@ -10,6 +10,7 @@ export default class CardRoute extends Route {
 
   setupController(controller, model) {
     controller.cardDesc = "I am giving you this because...";
+    controller.showQualityInfo = false;
     super.setupController(controller, model);
   }
 }

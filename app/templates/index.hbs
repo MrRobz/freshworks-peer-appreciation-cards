@@ -6,29 +6,37 @@
 
   <div class="card-list">
       {{#each this.cultureQualities as |quality|}}
-      <AnimatedContainer class="card-list-item" tabindex="0"
-          {{on "click" (fn this.onCardClick quality) }}
-          {{on "keypress" (fn this.onCardClickEnter quality) }}>
-        {{#animated-value quality use=this.transition}}
-            <AppreciationsCard 
-                @letter={{quality.letter}}
-                @size="s">
-              <div class="card-content">
-                <div class="card-content--letter">
-                  {{quality.letter}}
-                </div>
-
-                <div class="card-content--title">
-                  {{quality.name}}
-                </div>
+        <AnimatedContainer>
+          {{#animated-value quality use=this.transition}}
+            <button 
+                type="button"
+                class="card-list-item"
+                {{on "click" (fn this.onCardClick quality)}}
+                {{on "keypress" (fn this.onCardClickEnter quality)}}>
+              {{!-- <div role="button"
+                  class="card-info"
+                  {{on "click" (fn this.onCardInfoClick quality)}}>
+                {{svg-jar "info" width="20" height="20"}}
+              </div> --}}
+              <div class="card-image">
+                <img src="{{quality.imageLoc}}" alt="{{quality.imageAlt}}">
               </div>
-            </AppreciationsCard>
-        {{/animated-value}}
-        </AnimatedContainer>
+              <div class="card-quality-title">
+                {{quality.name}}
+              </div>
+            </button>
+          {{/animated-value}}
+          </AnimatedContainer>
       {{/each}}
   </div>
 </div>
 
 {{#each this.cultureQualities as |quality|}}
   <link rel="prefetch" href={{quality.imageLoc}}>
+  <link rel="prefetch" href={{quality.lineImageLoc}}>
 {{/each}}
+<link rel="prefetch" href="/images/freshworks-dew.png">
+
+
+{{!-- {{to-elsewhere named="app-modal" send=(hash component=(component "modals/quality-details" modalClose=this.closeQualityDetailsModal) isOpen=this.showCardDetailsModal)}} --}}
+

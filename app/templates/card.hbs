@@ -1,66 +1,103 @@
+<div class="dummy-wrapper">
+</div>
+
 <div class="quality-card--page">
-  <div class="back-btn"
-    {{on "click" this.goBack}}>
-    {{svg-jar "arrow-left-circle"}}
+  <div
+    role="button"
+    aria-label="back button"
+    tabindex="0"
+    class="back-btn"
+    {{on "click" this.goBack}}
+    {{on "keypress" this.goBack}}>
+    {{svg-jar "back"}}
   </div>
 
-  <div id="dummy-div" class="dummy-div">
-  </div>
   <div class="card-wrapper">
     <AnimatedContainer>
       {{#animated-value @model use=this.transition}}
-        <AppreciationsCard 
-            @letter={{@model.letter}}
-            @size="l">
-          <div class="card-content">
-            <div class="card-image-section">
-                <img src="{{@model.imageLoc}}" alt="card image">
+        <div class="appreciation-card-wrapper">
+          {{#animated-if this.showQualityInfo use=this.cardInfotransition}}
+            <div class="appreciation-card card-quality-info card-quality-info--{{@model.letter}}">
+
+              <div role="button" {{on "click" this.onCardInfoCloseClick}}>
+                {{svg-jar "close" class="info-close-icon" width="25" height="25"}}
+              </div>
+
+              <ul class="a">
+                {{#each @model.description.meaning as |desc|}}
+                  <li>
+                    {{desc}}
+                  </li>
+                {{/each}}
+              </ul>
             </div>
-
-            <div class="card-details-section">
-                <div class="card-details-title">
-                  {{@model.name}}
+          {{else}}
+            <AppreciationsCard
+                @letter={{@model.letter}}
+                @size="l">
+              <div role="button"
+                  aria-label="card info"
+                  class="card-info"
+                  {{on "click" this.onCardInfoClick}}>
+                {{svg-jar "info" width="20" height="20"}}
+              </div>
+              <div class="card-content">
+                <div class="card-image-section">
+                    <img src="{{@model.lineImageLoc}}" alt="{{@model.imageAlt}}">
                 </div>
 
-                <div class="card-details-to">
-                  <span>To</span>
-                  <input type="text"
-                    {{did-insert this.focusInput}}>
-                </div>
+                <div class="card-details-section">
+                    <div class="card-details-title">
+                      {{@model.name}}
+                    </div>
 
-                <div class="card-details-desc"
-                    {{did-insert this.setAutosizeListener}}
-                    {{will-destroy this.removeAutosizeListener}}>
-                  <Textarea
-                    class="textbox-lines" 
-                    rows="2"
-                    @key-press={{this.cardDescKeyPress}}
-                    @value={{this.cardDesc}}/>
-                </div>
+                    <div class="card-details-to">
+                      <label for="card-name">To</label>
+                      <Input name="person-name"
+                          id="card-name"
+                         @value={{this.cardTo}}
+                         {{did-insert this.focusInput}} />
+                    </div>
 
-                <div class="card-details-from">
-                  <span>From</span>
-                  <input type="text">
-                </div>
-            </div>
-          </div>
-        </AppreciationsCard>
+                    <div class="card-details-desc"
+                        {{did-insert this.setAutosizeListener}}
+                        {{will-destroy this.removeAutosizeListener}}>
+                      <Textarea
+                        class="textbox-lines" 
+                        rows="2"
+                        @key-press={{this.cardDescKeyPress}}
+                        @value={{this.cardDesc}}/>
+                    </div>
+
+                    <div class="card-details-from">
+                      <label for="card-from">From</label>
+                      <Input 
+                          id="card-from"
+                          name="person-from"
+                          @value={{this.cardFrom}}/>
+                    </div>
+                  </div>
+              </div>
+            </AppreciationsCard>
+          {{/animated-if}}
+        </div>
       {{/animated-value}}
     </AnimatedContainer>
   </div>
 
   <div class="share-options">
-    {{#animated-if shoshowShareOptions use=this.fade}}
-      <div class="share-text">
-        Share this card via -
-      </div>
-      <div class="share-buttons">
-        <button class="btn"
+    <div class="share-buttons">
+      {{#animated-if this.shoshowShareOptions use=this.fade}}
+        <button 
+          type="button"
+          class="btn"
           {{on "click" this.downloadCard}}>
             {{svg-jar "download"}}
             Download card
         </button>
-        <button class="btn tooltip"
+        <button 
+          type="button"
+          class="btn tooltip"
           disabled={{this.clipboardNotSupported}}
           {{on "click" this.copyToClipboard}}>
             {{svg-jar "clipboard"}}
@@ -70,9 +107,8 @@
               <span class="tooltiptext">I'm afraid your browser does not support this functionality.</span>
             {{/if}}
         </button>
-      </div>
-    {{/animated-if}}
+      {{/animated-if}}
+    </div>
   </div>
-
 
 </div>

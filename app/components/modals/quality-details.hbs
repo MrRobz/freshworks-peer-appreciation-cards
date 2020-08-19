@@ -1,0 +1,13 @@
+  <div class="modal" {{on "click" @modalClose}}>
+    {{#animated-if @isOpen use=modalContentTransition}}        
+      <div class="modal-content">
+        <p>Some text in the Modal..</p>
+
+        <div class="close"
+            {{on "click" @modalClose}}>
+          {{svg-jar "close"}}
+        </div>
+      </div>
+    {{/animated-if}}
+
+  </div>

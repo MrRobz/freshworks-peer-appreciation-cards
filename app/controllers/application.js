@@ -1,35 +1,61 @@
 import Controller from '@ember/controller';
+import { fadeIn } from 'ember-animated/motions/opacity';
+import { fadeOut } from 'ember-animated/motions/opacity';
+import { tracked } from '@glimmer/tracking';
+import { wait } from 'ember-animated';
 
 export default class ApplicationController extends Controller {
- constructor() {
-   super(...arguments);
+  constructor() {
+    super(...arguments);
 
-   let root = document.documentElement;
+    this.startBaloonAnimation();
+    this.modalTransition = this.modalTransition.bind(this);
+  }
 
-   function getRandomInt(max) {
-      let min = 0;
-      let random = Math.ceil(Math.random() * 10);
+  @tracked
+  showModalContent = false;
 
-      if (random % 2 === 0) {
-        let sectionSize = max/4;
-        max = sectionSize;
-      } else {
-        let sectionSize = max/4;
-        min = max - sectionSize;
-      }
+  getRandomInt = (max) => {
+    let min = 0;
+    let random = Math.ceil(Math.random() * 10);
 
-      return Math.floor(Math.random() * (max - min + 1)) + min;
-      
-   }
+    if (random % 2 === 0) {
+      let sectionSize = max/4;
+      max = sectionSize;
+    } else {
+      let sectionSize = max/4;
+      min = max - sectionSize;
+    }
 
-   setTimeout(() => {
-    root.style.setProperty('--baloon-x', getRandomInt(window.screen.width) + "px");
-    root.style.setProperty('--baloon-y', Math.floor(Math.random() * window.screen.height) + "px");
-   }, 500);
+    return Math.floor(Math.random() * (max - min + 1)) + min;  
+  }
 
-  setInterval(function(){
-    root.style.setProperty('--baloon-x', getRandomInt(window.screen.width) + "px");
+ startBaloonAnimation() {
+  let root = document.documentElement;
+
+  setTimeout(() => {
+   root.style.setProperty('--baloon-x', this.getRandomInt(window.screen.width) + "px");
+   root.style.setProperty('--baloon-y', Math.floor(Math.random() * window.screen.height) + "px");
+  }, 500);
+
+  setInterval(() => {
+    root.style.setProperty('--baloon-x', this.getRandomInt(window.screen.width) + "px");
     root.style.setProperty('--baloon-y', Math.floor(Math.random() * window.screen.height) + "px");
   }, 10000);
  }
+
+ *modalTransition({ insertedSprites, removedSprites }) {
+   yield;
+    for (let sprite of insertedSprites) {
+      fadeIn(sprite);
+      yield wait(500);
+      this.showModalContent = true;
+    }
+
+    for (let sprite of removedSprites) {
+      yield wait(100);
+      this.showModalContent = false;
+      fadeOut(sprite)
+    }
+  }
 }
