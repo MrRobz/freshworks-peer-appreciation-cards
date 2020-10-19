@@ -1349,6 +1349,14 @@
   dependencies:
     mkdirp "^1.0.4"
 
+"@postedin/ember-google-analytics@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@postedin/ember-google-analytics/-/ember-google-analytics-1.0.0.tgz#217abd01e8cefbfd211763dc49457ff151fbd297"
+  integrity sha512-wezTBwK9mOZr0GwfpHlGN1ylWwe1H1R+CX9yEpYR1XaCRmCmRcWR1qXwyRcrZRbCoPKM1WrzErPAkXJJkkl4hw==
+  dependencies:
+    ember-cli-babel "^7.13.0"
+    ember-cli-htmlbars "^4.2.0"
+
 "@simple-dom/interface@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@simple-dom/interface/-/interface-1.4.0.tgz#e8feea579232017f89b0138e2726facda6fbb71f"
