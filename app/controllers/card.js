@@ -11,6 +11,7 @@ import { fadeIn } from 'ember-animated/motions/opacity';
 import fade from 'ember-animated/transitions/fade';
 
 const CARD_DESC_CHAR_LIMIT = 360;
+window.ga = window.ga || (() => {});
 
 export default class CardController extends Controller {
   @service notifications;
@@ -278,6 +279,12 @@ export default class CardController extends Controller {
         clearDuration: 10000
       });
     }, 1000);
+
+    window.ga('send', 'event', {
+      eventCategory: 'Card Generate',
+      eventAction: 'download btn click',
+      eventLabel: this.model.name
+    });
   }
 
   @action
@@ -296,7 +303,11 @@ export default class CardController extends Controller {
       });
     }
 
-
+    window.ga('send', 'event', {
+      eventCategory: 'Card Generate',
+      eventAction: 'clipboard btn click',
+      eventLabel: this.model.name
+    });
   }
 
   @action
