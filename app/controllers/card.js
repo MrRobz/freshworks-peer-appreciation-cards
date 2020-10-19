@@ -11,7 +11,6 @@ import { fadeIn } from 'ember-animated/motions/opacity';
 import fade from 'ember-animated/transitions/fade';
 
 const CARD_DESC_CHAR_LIMIT = 360;
-window.ga = window.ga || (() => {});
 
 export default class CardController extends Controller {
   @service notifications;
@@ -280,7 +279,7 @@ export default class CardController extends Controller {
       });
     }, 1000);
 
-    window.ga('send', 'event', {
+    window.gtag('send', 'event', {
       eventCategory: 'Card Generate',
       eventAction: 'download btn click',
       eventLabel: this.model.name
@@ -303,7 +302,7 @@ export default class CardController extends Controller {
       });
     }
 
-    window.ga('send', 'event', {
+    window.gtag('send', 'event', {
       eventCategory: 'Card Generate',
       eventAction: 'clipboard btn click',
       eventLabel: this.model.name
