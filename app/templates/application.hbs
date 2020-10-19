@@ -17,6 +17,12 @@
 
 <MobilePopup/>
 
+{{#each this.cultureQualities as |quality|}}
+  <link rel="prefetch" href={{quality.imageLoc}}>
+  <link rel="prefetch" href={{quality.lineImageLoc}}>
+{{/each}}
+<link rel="prefetch" href="/images/freshworks-dew.png">
+
 <!-- Modal portal -->
 {{!-- {{#from-elsewhere name="app-modal" as |modal|}}
   <AnimatedContainer>

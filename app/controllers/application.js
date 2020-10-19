@@ -3,6 +3,7 @@ import { fadeIn } from 'ember-animated/motions/opacity';
 import { fadeOut } from 'ember-animated/motions/opacity';
 import { tracked } from '@glimmer/tracking';
 import { wait } from 'ember-animated';
+import { qualities } from '../constants/culture-qualities';
 
 export default class ApplicationController extends Controller {
   constructor() {
@@ -14,6 +15,10 @@ export default class ApplicationController extends Controller {
 
   @tracked
   showModalContent = false;
+
+  get cultureQualities() {
+    return qualities;
+  }
 
   getRandomInt = (max) => {
     let min = 0;
