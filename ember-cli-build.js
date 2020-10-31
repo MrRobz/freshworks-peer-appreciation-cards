@@ -7,9 +7,6 @@ module.exports = function(defaults) {
     'ember-cli-notifications': {
       autoClear: true,
       clearDuration: 2400
-    },
-    googleAnalytics: {
-      trackingId: 'UA-138326907-2',
     }
   });
 
