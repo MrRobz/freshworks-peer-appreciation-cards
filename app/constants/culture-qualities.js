@@ -1,7 +1,7 @@
 export const qualities = [
   {
     id: 'craftsmanship',
-    name: 'Craftsmanship',
+    name: 'Craftspersonship',
     letter: 'c',
     color: '#ffd15b',
     imageLoc: '/images/craftsmanship.png',
@@ -12,7 +12,7 @@ export const qualities = [
         "We strive to be world-class in everything we do.",
         "We have high standards of excellence, undeterred commitment to quality and aim to build solutions that leave a legacy.",
         "We pursue continuous learning and apply what we learn to achieve mastery.",
-        "We don’t boil the ocean. Craftsmanship is getting stuff done in reasonable amount of time."
+        "We don’t boil the ocean. Craftpersonship is getting stuff done in reasonable amount of time."
       ]
     }
   },
